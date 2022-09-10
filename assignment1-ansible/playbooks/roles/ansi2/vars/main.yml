@@ -1,1 +1,6 @@
+---
+# vars file for launch-ec2
+image: "ami-018d291ca9ffc002f"
+instance_type: "t2.micro"
+region: "us-west-1"
 
