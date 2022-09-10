@@ -1,1 +1,7 @@
-
+---
+# tasks file for undeploy-web
+- name: Stop service httpd, if started
+  ansible.builtin.service:
+    name: httpd
+    enabled: false
+    state: stopped
