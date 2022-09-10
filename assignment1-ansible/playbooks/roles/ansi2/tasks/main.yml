@@ -1,1 +1,42 @@
+---
+# tasks file for launch-ec2
+# tasks file for ansi2
+- name: provisioning web1  in aws
+  ec2: 
+    key_name: "webserver-key"
+    instance_type: "{{instance_type}}"
+    image: "{{image}}"
+    wait: yes
+    count: 1
+    vpc_subnet_id: "subnet-089b3e65bb1c6df5a"
+    assign_public_ip: yes
+    region: "{{region}}" 
+    state: present
+    group_id: "sg-0fce26e1d0bc2b8ef"
+    aws_access_key: "{{myaccess}}"
+    aws_secret_key: "{{mysecret}}"
+    instance_tags:
+      Name: ansibleweb1
+
+  register: ansibleweb1
+
+- name: provisioning web22 in aws
+  ec2: 
+    key_name: "webserver-key"
+    instance_type: "{{instance_type}}"
+    image: "{{image}}"
+    wait: yes
+    count: 1
+    vpc_subnet_id: "subnet-089b3e65bb1c6df5a"
+    assign_public_ip: yes
+    region: "{{region}}" 
+    state: present
+    group_id: "sg-0fce26e1d0bc2b8ef"
+    aws_access_key: "{{myaccess}}"
+    aws_secret_key: "{{mysecret}}"
+    instance_tags:
+      Name: ansibleweb2
+
+  register: ansibleweb2
+
 
