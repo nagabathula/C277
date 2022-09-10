@@ -1,1 +1,26 @@
+---
+# tasks file for webserver
+- name: installing httpd package
+  package: 
+     name: "httpd"
+     state: present
+     #  register: package_installed
+
+- name: Creating a file with content
+  copy:
+     dest: "{{ index_path }}"
+     content: |
+        Hello World from SJSU
+
+  #- name: Disabling SELINUX
+  #selinux:
+  #  state: disabled
+  ##become: true
+  #become_user: root
+  #become_method: sudo
+
+- name: starting web services
+  service: 
+     name: "httpd"
+     state: started
 
